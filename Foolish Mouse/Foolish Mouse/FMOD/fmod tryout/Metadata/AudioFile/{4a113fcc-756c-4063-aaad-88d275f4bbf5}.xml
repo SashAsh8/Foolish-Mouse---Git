@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4a113fcc-756c-4063-aaad-88d275f4bbf5}">
+		<property name="assetPath">
+			<value>wolf1.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>16.879781250000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dc7ac1cb-fb34-45d0-b88b-646f47e085ff}</destination>
+		</relationship>
+	</object>
+</objects>

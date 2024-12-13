@@ -1,0 +1,695 @@
+﻿//------------------------------------------------------------------------
+//                                  Start
+//------------------------------------------------------------------------
+title: Start
+---
+//check if we are in the right scene
+<<if get_scene() != "Demonstration">>
+    <<jump NoDemonstration>>
+<<endif>>
+//disable all interactivity
+//show welcome text
+Ah, another case for me to figure out. I wonder what's it all about.
+As always my role is to figure this murder or possible sucide out. 
+Hopefully they pay their investigator properlly and on time, so I don't have to take more side jobs as a private investigator.
+Well, let's see what this is all about.
+===
+
+//------------------------------------------------------------------------
+//                                  DemonstrateFeatures
+//------------------------------------------------------------------------
+title: DemonstrateFeatures
+---
+What feature do you want to see?
+->Playing a basic animation
+    <<jump SimpleAnimation>>
+->Playing a basic sound effect
+    <<jump SimpleAudio>>
+->Contract
+    <<jump ShowMenu>>
+->Inventory item
+    <<jump Inventory>>
+->Showing particles
+    <<jump Particles>>
+->Showing a code lock puzzle
+    <<jump CodeLock>>
+->Starting a YarnSpinner dialogue
+    <<jump YarnSpinnerScene>>
+->Opening/closing a box
+    <<jump OpenCloseBox>>
+->Set quests
+    <<jump Quests>>
+->Stop Demo
+    <<jump NoDemonstration>>
+===
+
+//------------------------------------------------------------------------
+//                                  SimpleAudio
+//------------------------------------------------------------------------
+title: SimpleAudio
+---
+<<show_path "Player" "SimpleAudioTrigger">>
+This is a demonstration of SimpleAudioTrigger.
+You can add a sound effect to an object using this component.
+If you activate it (press E), the sound will play.
+<<set_enabled "SimpleAudioTrigger" true>>
+<<wait 4>>
+<<set_enabled "SimpleAudioTrigger" false>>
+<<jump DemonstrateFeatures>>
+===
+
+//------------------------------------------------------------------------
+//                                  ShowMenu
+//------------------------------------------------------------------------
+title: ShowMenu
+---
+<<show_path "Player" "MenuTrigger">>
+Hmm.. looks like some sort of a contract.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "Letter">>
+<<set_enabled "MenuTrigger" false>>
+<<jump DemonstrateFeatures>>
+===
+
+//------------------------------------------------------------------------
+//                                  Inventory
+//------------------------------------------------------------------------
+title: Inventory
+---
+<<show_path "Player" "UseInventoryItem">>
+This is a demonstration of the inventory.
+You can press TAB to see your inventory.
+It is now empty.
+First, try to activate this object by holding down E.
+<<set_enabled "UseInventoryItem" true>>
+<<wait 4>>
+<<set_enabled "UseInventoryItem" false>>
+Now, let's get the key.
+<<show_path "Player" "Collectable">>
+Pick up the key and go back to the previous cube.
+<<show_path "Player" "UseInventoryItem">>
+Now, try to activate the object by holding down E.
+As you can see, now it works.
+<<set_enabled "UseInventoryItem" true>>
+<<wait 4>>
+<<set_enabled "UseInventoryItem" false>>
+<<jump DemonstrateFeatures>>
+===
+
+//------------------------------------------------------------------------
+//                                  Particles
+//------------------------------------------------------------------------
+title: Particles
+---
+<<show_path "Player" "UnityEventTrigger">>
+This is a demonstration of a component called UnityEventTrigger.
+You can use it to activate Unity events.
+With Unity events, you can control Unity-level properties.
+For instance, we use it to display a particle effect by turning it on.
+Press E to try it.
+<<set_enabled "UnityEventTrigger" true>>
+<<wait 4>>
+<<set_enabled "UnityEventTrigger" false>>
+Most of the interactable components in the framework could also be done with a Unity event.
+But Unity events offer more control, because you can also set the parameters.
+Feel free to add an object to this component and browse through the events it has.
+Hope you will feel inspired. The possibilities are virtually endless!
+<<wait 4>>
+<<jump DemonstrateFeatures>>
+===
+
+//------------------------------------------------------------------------
+//                                  CodeLock
+//------------------------------------------------------------------------
+title: CodeLock
+---
+<<show_path "Player" "MenuTrigger (CodeLock)">>
+This is a demonstration of a code lock.
+That is a puzzle that was made using Unity UI.
+The right code is set in the CodeLock component that is on the UI.
+If the player makes a guess, the CodeLock component will fire a Unity Event.
+Currently, these events will trigger a scene in the YarnSpinner dialogue (RightAnswer or WrongAnswer)
+<<set_enabled "MenuTrigger (CodeLock)" true>>
+<<wait_until_closed "CodeLock">>
+<<set_enabled "MenuTrigger (CodeLock)" false>>
+<<wait 8>>
+<<jump DemonstrateFeatures>>
+===
+
+//------------------------------------------------------------------------
+//                                  YarnSpinnerScene
+//------------------------------------------------------------------------
+title: YarnSpinnerScene
+---
+<<show_path "Player" "DialogueTrigger">>
+This is a demonstration of DialogueTrigger.
+That component will start a scene in the YarnSpinner script.
+It can be used to make NPCs talk.
+Note that the previous dialogue must have ended before you can start it.
+Since this demo dialogue is already playing, a second DialogueSystem was added to the project.
+The node it will run is called HelloCube in the YarnSpinner script.
+Press E to test it.
+<<set_enabled "DialogueTrigger" true>>
+<<wait 4>>
+<<set_enabled "DialogueTrigger" false>>
+<<wait 4>>
+<<jump DemonstrateFeatures>>
+===
+
+//------------------------------------------------------------------------
+//                                  OpenCloseBox
+//------------------------------------------------------------------------
+title: OpenCloseBox
+---
+<<show_path "Player" "AnimationToggle">>
+This is a demonstration of the AnimationToggle component.
+It allows to toggle between a number of animation states.
+You can add those animation states in the Animator window.
+On the component, you can provide a list with the names of the states.
+Under that list, you can select the toggle mode (looped, once or random).
+In this case, the component toggles between the Open and Close state.
+This can be used for doors, drawers, closets or chests.
+Press E multiple times to test it.
+<<set_enabled "AnimationToggle" true>>
+<<wait 6>>
+<<set_enabled "AnimationToggle" false>>
+<<jump DemonstrateFeatures>>
+===
+
+//------------------------------------------------------------------------
+//                                  Quests
+//------------------------------------------------------------------------
+title: Quests
+---
+<<declare $quest = "none">>
+Let's show how to make quests.
+We can use a variable for it in the script. We will call the variable $quest.
+This variable is also shown in the HUD, top-left of the screen.
+Currently, the value is "none". We will change it to "find shopkeeper".
+<<set $quest to "find shopkeeper">>
+So our current quest is to find the shopkeeper.
+Let's also give a hint.
+<<show_path "Player" "NPC">>
+<<say "NPCHead" "Greetings! You found me, the shopkeeper!">>
+<<say "NPCHead" "Can you find the shiny block for me?">>
+<<set $quest to "find shiny block">>
+<<set_enabled "NPC" true>>
+//this continues in ShopKeeper scene when user presses E
+===
+
+//------------------------------------------------------------------------
+//                                  ShopKeeper
+//------------------------------------------------------------------------
+title: ShopKeeper
+---
+<<if $quest == "find shiny block">>
+    <<if has_item("Player", "shiny")>>
+        <<say "NPCHead" "Ah! You found it! Well done!">>
+        <<say "NPCHead" "Can you give me the item?">>
+        Give the item to the shopkeeper?
+        -> Yes
+            <<take_item "Player" "shiny">>
+            <<say "NPCHead" "Thanks, I will go to Location1.">>
+            <<walk_to "NPC" "Location1">>
+        -> No
+            <<say "NPCHead" "Oh, okay, I will go to Location2.">>
+            <<walk_to "NPC" "Location2">>
+        <<wait 4>>
+        <<jump DemonstrateFeatures>>
+    <<else>>
+        <<say "NPCHead" "Have you found the shiny block yet? Maybe look behind you.">>
+    <<endif>>
+<<endif>>
+===
+
+//------------------------------------------------------------------------
+//                                  HelloCube
+//------------------------------------------------------------------------
+title: HelloCube
+---
+Cube: Hello, this is the HelloCube node!
+===
+
+//------------------------------------------------------------------------
+//                                  RightAnswer
+//------------------------------------------------------------------------
+title: RightAnswer
+---
+That was correct! You should always guess 1234 first.
+===
+
+//------------------------------------------------------------------------
+//                                  WrongAnswer
+//------------------------------------------------------------------------
+title: WrongAnswer
+---
+No, that is not correct. Maybe the code is 1234?
+===
+
+//------------------------------------------------------------------------
+//                                  NoDemonstration
+//------------------------------------------------------------------------
+title: NoDemonstration
+---
+    //enable all interactivity before exiting (except NPC)
+    <<set_enabled "DialogueTrigger" true>>
+    <<set_enabled "SimpleAnimationTrigger" true>>
+    <<set_enabled "SimpleAudioTrigger" true>>
+    <<set_enabled "MenuTrigger" true>>
+    <<set_enabled "UseInventoryItem" true>>
+    <<set_enabled "UnityEventTrigger" true>>
+    <<set_enabled "MenuTrigger (CodeLock)" true>>
+    <<set_enabled "DialogueTrigger" true>>
+    <<set_enabled "AnimationToggle" true>>
+    <<stop>>
+===
+
+//------------------------------------------------------------------------
+//                                  First room:
+//------------------------------------------------------------------------
+title:FirstRoom
+---
+How-
+How is this even possible.
+It looks like the same room as before, only the items are in different positions?
+I should take a better look this time.
+===
+
+//------------------------------------------------------------------------
+//                                 Contract table
+//------------------------------------------------------------------------
+title: ContractTable
+---
+This is the contract I found in the previous room on the ground.
+Let me take a closer look this time.
+It looks like a contract for a private investigator? 
+... Interesting.
+Maybe this person knew someone was going to kill them...
+and wanted to prevent it.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "Contract1">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Chess on Desk 
+//------------------------------------------------------------------------
+title: ChessTable
+---
+Looks like they didnt start playing the chess yet. 
+Could this possibly be the what happen before the incident. 
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "chess">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Drink 
+//------------------------------------------------------------------------
+title: Drink
+---
+A bottle Whiskey, have to say they have a good taste, TAV 96, very noble.  
+This must be what they were drinking at the table
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "drink">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Glass
+//------------------------------------------------------------------------a
+title: Glass
+---
+Looks like a normal Whiskey glass to me, nothing special.
+However, in this room its not been poured yet. 
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "glass">>
+<<set_enabled "MenuTrigger" false>>
+
+//------------------------------------------------------------------------
+//                                  Keys on table 
+//------------------------------------------------------------------------
+title: KeysTable 
+---
+Looks like just a normal set of keys, probably from this aparment.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "keys">>
+<<set_enabled "MenuTrigger" false>>
+<<jump Start>>
+===
+
+//------------------------------------------------------------------------
+//                                  Cigs on table 
+//------------------------------------------------------------------------
+title: CigsTable
+---
+Ciggarets, this might belong to the killer or the victim, cant be sure yet.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "cigs">>
+<<set_enabled "MenuTrigger" false>>
+<<jump Start>>
+===
+
+//------------------------------------------------------------------------
+//                                  Poison in the trash
+//------------------------------------------------------------------------
+title: Poison
+---
+Looks like theres something in the trash.
+Seems like some sort of weird drugs.
+This might be the cause of death, 
+I'll make sure to send this to the lab later.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "poison">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Decoy poison
+//------------------------------------------------------------------------
+title: Decoy
+---
+Some empty small jar, prehaps for drinks? 
+Doesn't seem too important. 
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "decoy">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                 Scissor table
+//------------------------------------------------------------------------
+title: ScissorGround
+---
+Scissors in a bathroom, nothing special.
+Could be for clipping nails or trimming any sorts of hair.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "scissor">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  newspaper
+//------------------------------------------------------------------------
+title: Newspaper
+---
+The newspaper reads:
+"Insanity in a Liquid; A new chemical was recently discovered by scientists. 
+They have found that this chemical can interact with the human brain and make the subject go insane..."
+A powerfull drug that makes people go crazy... 
+That could be what the killer used on the victim.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "newspaper">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Magazine
+//------------------------------------------------------------------------
+title: Magazine
+---
+Magazine about ...
+Nothing special.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "magazine">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Second room:
+//------------------------------------------------------------------------
+title: SecondRoom
+---
+Seems, exactly like the other rooms,
+Prehaps I was right, the rooms are all the same...
+Just with slight changes?
+Maybe I can make more sense of this by finding more clues.
+Theres something weird going on... I need to get out of here somehow.
+===
+
+//------------------------------------------------------------------------
+//                                 Contract table
+//------------------------------------------------------------------------
+title: ContractTable
+---
+The contract is the same, looks like its just been moved to have more space.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "Contract1">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Chess on Table
+//------------------------------------------------------------------------
+title: ChessTable
+---
+Seems like they started playing chess here.
+Hm... I suposse my theory of the rooms being the crime scene,
+just at different times might be correct...
+How is this even possible?!
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "chess">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Third room:
+//------------------------------------------------------------------------
+title:ThirdRoom
+---
+Well, cant say Im surprised by now.
+There has to be some way to get out of here.
+But for now Ill try to figure out this case.
+Maybe then, Ill be able to escape this madness.
+===
+
+//------------------------------------------------------------------------
+//                                  Glass
+//------------------------------------------------------------------------a
+title: GlassTable
+---
+Looks like a normal Whiskey glasses have moved to the table now.
+This means, they had to start drinking it.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "glass">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Fourth room:
+//------------------------------------------------------------------------
+title: FourthRoom
+---
+Lets see, what new things can be found here.
+===
+
+//------------------------------------------------------------------------
+//                                  Keys gone
+//------------------------------------------------------------------------
+title: Keys2
+---
+Starnge... Seems like the keys have dissapeared.
+What could this mean?
+Maybe one person left? But why would they do that?
+Could the killer lock the victom int he room and leave?
+===
+
+//------------------------------------------------------------------------
+//                                  Cigs gone
+//------------------------------------------------------------------------
+title: Cigs2
+---
+The ciggarets seem to be gone, prehaps they went out for a smoke?
+===
+
+//------------------------------------------------------------------------
+//                                  Fifth room:
+//------------------------------------------------------------------------
+title: FifthRoom
+---
+New room, new clues.
+===
+
+//------------------------------------------------------------------------
+//                                  Contract fell
+//------------------------------------------------------------------------
+title: Contract2
+---
+Looks liek the contract from before fell on the ground, or maybe it was thrown?
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "contract">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Poison found
+//------------------------------------------------------------------------
+title: Poison2
+---
+Seems like the person, has found the strange fluid in the trash.
+Maybe they started to explore the apartment afte the other person left?
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "poison">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Glass fell
+//------------------------------------------------------------------------a
+title: Glass2
+---
+Suspicious... one of the glasses is now tipped over.
+Maybe the person was drugged?
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "glass">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Blood Cough
+//------------------------------------------------------------------------
+title: BloodCough
+---
+Blood in the sink... looks like as if someone had coughed it out. 
+I should figure out the reason for it.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "bloodcough">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  note 1
+//------------------------------------------------------------------------
+title: Note1
+---
+This may be a note from the victim, or prehaps the killer?
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "note1">>
+<<set_enabled "MenuTrigger" false>>
+===
+//------------------------------------------------------------------------
+//                                  note 2
+//------------------------------------------------------------------------
+title: Note2
+---
+Another note found... seems like the sympthoms got worse. 
+It's clear that the victim is writing all this.
+Seems like they've been invited over, prehaps to sign the contract.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "note2">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Sixth room:
+//------------------------------------------------------------------------
+title: SixthRoom
+---
+
+===
+//------------------------------------------------------------------------
+//                                  note 3
+//------------------------------------------------------------------------
+title: Note3
+---
+Seems like he read the newspaper in the room.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "note3">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  note 4
+//------------------------------------------------------------------------
+title: Note4
+---
+Seems like this person is really going through it...
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "note4">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  note 5
+//------------------------------------------------------------------------
+title: Note5
+---
+What could the answer be... I fear I might know the answer; however, I hope I'm not right.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "note5">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Seventh room:
+//------------------------------------------------------------------------
+title: SeventhRoom
+---
+I must find the answers here, and figure out how to leave.
+===
+//------------------------------------------------------------------------
+//                                 Scissor gone
+//------------------------------------------------------------------------
+title: ScissorGone
+---
+The scissors are gone...
+Prehaps this could be the murder veapon?
+===
+
+//------------------------------------------------------------------------
+//                                  Blood path
+//------------------------------------------------------------------------
+title: Bloodpath
+---
+A path made from blood drops... I wonder where it leads to, this must be from the victom.
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "bloodpath">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                  Eight room:
+//------------------------------------------------------------------------
+title: EighthRoom
+---
+Last room, hopefully itll bring some closure.
+===
+
+//------------------------------------------------------------------------
+//                                  Blood Trail
+//------------------------------------------------------------------------
+title: BloodTrail
+---
+The blood trail leed to the bed...
+===
+
+//------------------------------------------------------------------------
+//                                  note 6
+//------------------------------------------------------------------------
+title: Note6
+---
+I think the answer for me is also clear... 
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "note6">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+//------------------------------------------------------------------------
+//                                 Scissor Ground
+//------------------------------------------------------------------------
+title: ScissorGround
+---
+The scissors appeared again, however theyre on the ground now?
+===
+
+//------------------------------------------------------------------------
+//                                  Body
+//------------------------------------------------------------------------
+title: Body
+---
+Whats this?! it seems like a body under the blanket. 
+
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "body">>
+<<set_enabled "MenuTrigger" false>>
+===

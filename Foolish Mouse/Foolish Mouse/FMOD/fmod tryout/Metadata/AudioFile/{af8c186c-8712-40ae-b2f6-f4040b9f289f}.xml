@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{af8c186c-8712-40ae-b2f6-f4040b9f289f}">
+		<property name="assetPath">
+			<value>dog1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.84569160997732429</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dc7ac1cb-fb34-45d0-b88b-646f47e085ff}</destination>
+		</relationship>
+	</object>
+</objects>

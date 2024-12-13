@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fd91fc72-94f5-4e06-bea4-1e436e40a6b1}">
+		<property name="assetPath">
+			<value>653684__klankbeeld__1970-telephone-ring-7-nl.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>35.175354166666665</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dc7ac1cb-fb34-45d0-b88b-646f47e085ff}</destination>
+		</relationship>
+	</object>
+</objects>

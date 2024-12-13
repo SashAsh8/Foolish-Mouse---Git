@@ -1,0 +1,55 @@
+﻿title: Item
+---
+<<declare $itemsFound = 0>>
+===
+
+title: ShowItemsFound
+---
+U found a {$itemsFound} items!
+===
+
+title: Key
+---
+<<declare $hasKey = false>>
+Hello, welcome person.
+Find the key!
+===
+
+
+title: GetKey
+---
+You Found it!
+<<set $hasKey to true>>
+===
+
+
+title: OpenDoor
+---
+<<if $HasKey ==true>>
+    U opened the door!
+<<else>>
+    u should find the key first>>
+<<endif>>
+===
+
+title: Start
+---
+<<declare $quest = "unassigned">>
+===
+
+title:QuestGiver
+---
+<<if $quest == "unassigned">>
+    NPC: Hello, loser. Could u bring me the cube?
+    <<set $quest to "in progress">>
+<<elseif $quest == "in progress">>
+    <<if not has_item("Player", "items")>>
+        NPC: Did u find the cube yet?
+    <<else>>
+        NPC: Thx u for finding the cube!
+        <<set $quest to "done">>
+    <<endif>>
+<<elseif $quest == "done">>
+    NPC: This quest is over.
+<<endif>>
+===
