@@ -8,14 +8,14 @@ title:Scene1
 //   <<jump Scene1>>
 //<<endif>>
 Ah, another case for me to figure out. I wonder what's it all about.
-As always my role is to figure this murder or possible sucide out. 
+As always, my role is to figure this murder or possible suicide out. 
 Hopefully they pay their investigator properlly and on time, so I don't have to take more side jobs as a private investigator.
 Well, let's see what this is all about.
 ===
 
 title: SixItems
 ---
-Im starting to feel weird.
+I'm starting to feel weird.
 I should leave and come back once I feel better.
 ===
 
@@ -25,6 +25,7 @@ title: Leave
     <<load_scene "Scene2">>
 <<endif>>
 ===
+
 //------------------------------------------------------------------------
 //                                  Scene 2
 //------------------------------------------------------------------------
@@ -38,9 +39,9 @@ title:Scene2
 //show welcome text
 What?!
 Wha- What just happened?!
-Surely Im going crazy.
+Surely I'm going crazy.
 I should really leave and clear my mind.
-I can come back later once Im back to my sense.
+I can come back later once I'm back to my senses.
 ===
 
 //------------------------------------------------------------------------
@@ -93,19 +94,19 @@ What feature do you want to see?
 //------------------------------------------------------------------------
 title: Cop1
 ---
-Hello officers, How are we today?
+Hello officers, how are we today?
 <<say "NPCHead" "Ah, hello there detective.">>
-<<say "NPCHead" "Something about this case doesnt feel right.">>
+<<say "NPCHead" "Something about this case doesn't feel right.">>
 What do you mean about that?
-<<say "NPCHead" "Theres something weird going on.">>
-<<say "NPCHead" "We cant figure it out though.">>
+<<say "NPCHead" "There's something weird going on.">>
+<<say "NPCHead" "We can't figure it out though.">>
 Intresting...
-<<say "NPCHead1" "Im sure youll be able to figure this out.">>
-Lets hope so, haha.
+<<say "NPCHead1" "I'm sure you'll be able to figure this out.">>
+Let's hope so, haha.
 What do you mean about that?
 <<say "NPCHead1" "Once youre ready, go to the last room.">>
 <<say "NPCHead1" "The sheriff should be waiting there">>
-Alright, Thank you gentlemen. 
+Alright, thank you gentlemen. 
 ===
 
 title:Cop2
@@ -115,17 +116,17 @@ Good afternoon sheriff.
 <<say "Sheriff" "Good to see you again, detective.">>
 <<say "Sheriff" "We got an interesting case today...">>
 How so?
-<<say "Sheriff" "Well, I think thats for you to figure out.">>
+<<say "Sheriff" "Well, I think that's for you to figure out.">>
 Very funny, ... But I guess youre right.
 It is my job after all.
-<<say "Sheriff" "Thats the spirit, now get to work.">>
-<<say "NPCHead2" "Were here if you need anything Sir.">>
-Thank you, but that wont be necessary.
+<<say "Sheriff" "That's the spirit, now get to work.">>
+<<say "NPCHead2" "We're here if you need anything Sir.">>
+Thank you, but that won't be necessary.
 As you know, I like working alone,
-where I dont get interrupted.
-So if youd excuse me...
+where I don't get interrupted.
+So if you'd excuse me...
 <<say "Sheriff" "Still the lone wolf I see.">>
-<<say "Sheriff" "Whatever gets the job done I guess.">>
+<<say "Sheriff" "Whatever gets the job done, I guess.">>
 <<say "Sheriff" "Alright, you got it detective.">>
 Appreciate it chief.
 <<say "Sheriff" "Just get it done.">>
@@ -138,7 +139,7 @@ Appreciate it chief.
 //------------------------------------------------------------------------
 title:WrongCode
 ---
-Doesnt seem like the code worked...
+Doesn't seem like the code worked...
 ===
 
 //------------------------------------------------------------------------
@@ -159,7 +160,7 @@ title: ContractTable
 ---
 This is the contract I found in the previous room on the ground.
 Let me take a closer look this time.
-It looks like a contract for a private investigator? 
+It looks like a contract for hiring a private investigator? 
 ... Interesting.
 Maybe this person knew someone was going to kill them...
 and wanted to prevent it.
@@ -173,7 +174,7 @@ and wanted to prevent it.
 //------------------------------------------------------------------------
 title: ChessDesk
 ---
-Looks like they didnt start playing the chess yet. 
+Looks like they didn't start playing the chess yet. 
 Could this possibly be the what happen before the incident. 
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "chess">>
@@ -224,7 +225,7 @@ Looks like just a normal set of keys, probably from this aparment.
 //------------------------------------------------------------------------
 title: CigsTable
 ---
-Ciggarets, this might belong to the killer or the victim, cant be sure yet.
+Ciggarets, this might belong to the killer or the victim, can't be sure yet.
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "cigs">>
 <<set_enabled "MenuTrigger" false>>
@@ -236,7 +237,7 @@ Ciggarets, this might belong to the killer or the victim, cant be sure yet.
 //------------------------------------------------------------------------
 title: Poison
 ---
-Looks like theres something in the trash.
+Looks like there's something in the trash.
 Seems like some sort of weird drugs.
 This might be the cause of death, 
 I'll make sure to send this to the lab later.
@@ -277,7 +278,7 @@ title: Newspaper2
 The newspaper reads:
 "Caesar would be dissapointed.
 Did you know 70% of adults globally are unable to count higher than 10 in roman numerals?
-A recent study shows that up to 64% of adults globally don’t know their roman numerals. 
+A recent study shows that up to 64% of adults globally don't know their roman numerals. 
 While roman numerals are used almost everywhere, for example in book chapters, movie names, 
 clocks, and administrative documents they are still becoming less and less significant.
 Are you able to translate this year from roman numerals?
@@ -354,7 +355,7 @@ Seems, exactly like the other rooms,
 Prehaps I was right, the rooms are all the same...
 Just with slight changes?
 Maybe I can make more sense of this by finding more clues.
-Theres something weird going on... I need to get out of here somehow.
+There's something weird going on... I need to get out of here somehow.
 ===
 
 //------------------------------------------------------------------------
@@ -363,7 +364,7 @@ Theres something weird going on... I need to get out of here somehow.
 title: ContractTable2
 ---
 The contract is the same, looks like its just been moved to have more space.
-Looks like the page also changes.
+Looks like the page has also changed.
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "Contract">>
 <<set_enabled "MenuTrigger" false>>
@@ -391,10 +392,10 @@ How is this even possible?!
 //------------------------------------------------------------------------
 title:ThirdRoom
 ---
-Well, cant say Im surprised by now.
+Well, cant say I'm surprised by now.
 There has to be some way to get out of here.
-But for now Ill try to figure out this case.
-Maybe then, Ill be able to escape this madness.
+But for now I'll try to figure out this case.
+Maybe then, I'll be able to escape this madness.
 ===
 
 //------------------------------------------------------------------------
@@ -402,7 +403,7 @@ Maybe then, Ill be able to escape this madness.
 //------------------------------------------------------------------------a
 title: GlassTable
 ---
-Looks like a normal Whiskey glasses have moved to the table now.
+Looks like normal Whiskey glasses, they have moved to the table now.
 This means, they had to start drinking it.
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "glass">>
@@ -414,7 +415,7 @@ This means, they had to start drinking it.
 //------------------------------------------------------------------------
 title: FourthRoom
 ---
-Lets see, what new things can be found here.
+Let's see, what new things can be found here.
 ===
 
 //------------------------------------------------------------------------
@@ -422,10 +423,10 @@ Lets see, what new things can be found here.
 //------------------------------------------------------------------------
 title: KeysCigs
 ---
-Starnge... Seems like the keys have dissapeared.
+Strange... Seems like the keys have dissapeared.
 What could this mean?
 Maybe one person left? But why would they do that?
-Could the killer lock the victim int he room and leave?
+Could the killer lock the victim in the room and leave?
 The ciggarets seem to be gone, prehaps they went out for a smoke?
 ===
 
@@ -442,7 +443,7 @@ New room, new clues.
 //------------------------------------------------------------------------
 title: Contract2
 ---
-Looks liek the contract from before fell on the ground, or maybe it was thrown?
+Looks like the contract from before fell on the ground, or maybe it was thrown?
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "contract">>
 <<set_enabled "MenuTrigger" false>>
@@ -516,16 +517,16 @@ Seems like they've been invited over, prehaps to sign the contract.
 title: SixthRoom
 ---
 There must be an end to this madness.
-Its as if Im a mouse stuck in a mouse trap..
-Im the mouse, the doors are the cheese, and the rooms a trap.
-Surely it must end some point... right?
+It's as if I'm a mouse stuck in a mouse trap..
+I'm the mouse, the doors are the cheese, and the rooms a trap.
+Surely it must end at some point... right?
 ===
 //------------------------------------------------------------------------
 //                                  note 3
 //------------------------------------------------------------------------
 title: Note3
 ---
-Seems like he read the newspaper in the room.
+Looks like he read the newspaper in the room.
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "note3">>
 <<set_enabled "MenuTrigger" false>>
@@ -549,7 +550,8 @@ I wonder if this slipped off of the victims wrist.
 //------------------------------------------------------------------------
 title: Note4
 ---
-Seems like this person is really going through it...
+Gosh... 
+this person is really going through it...
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "note4">>
 <<set_enabled "MenuTrigger" false>>
@@ -614,7 +616,7 @@ A path made from blood drops... I wonder where it leads to, this must be from th
 //------------------------------------------------------------------------
 title: EighthRoom
 ---
-Last room, hopefully itll bring some closure.
+Last room, hopefully it'll bring some closure.
 ===
 
 //------------------------------------------------------------------------
@@ -652,7 +654,7 @@ The scissors appeared again, however theyre on the ground now?
 //------------------------------------------------------------------------
 title: Body
 ---
-Whats this?! it seems like a body under the blanket. 
+What's this?! it seems like a body under the blanket. 
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "body">>
 <<set_enabled "MenuTrigger" false>>
