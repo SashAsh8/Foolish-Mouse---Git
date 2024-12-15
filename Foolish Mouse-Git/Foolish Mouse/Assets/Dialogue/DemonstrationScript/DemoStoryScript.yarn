@@ -143,6 +143,75 @@ Doesn't seem like the code worked...
 ===
 
 //------------------------------------------------------------------------
+//                                  1/8 room:
+//------------------------------------------------------------------------
+title: Contract1
+---
+Hmm.. looks like some sort of a contract.
+<<if $itemCount == 6>>
+    <<jump SixItems>>
+<<endif>>
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "contract date 1">>
+<<set_enabled "MenuTrigger" false>>
+<<jump DemonstrateFeatures>>
+===
+
+title: Drink1
+---
+A bottle Whiskey, have to say they have a good taste, TAV 96, very noble.  
+This must be what they were drinking at the table
+<<if $itemCount == 6>>
+    <<jump SixItems>>
+<<endif>>
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "drink">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+title: Chess
+---
+Looks like they had company over and played chess.
+<<if $itemCount == 6>>
+    <<jump SixItems>>
+<<endif>>
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "chess">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+title: Poison1
+---
+Some weird liquid in a bottle, I should probably sned this to lab.
+<<if $itemCount == 6>>
+    <<jump SixItems>>
+<<endif>>
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "poison">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+title: Bloodpath1
+---
+Blood splatter, this needs to be examined. 
+<<if $itemCount == 6>>
+    <<jump SixItems>>
+<<endif>>
+<<set_enabled "MenuTrigger" true>>
+<<wait_until_closed "bloodpath">>
+<<set_enabled "MenuTrigger" false>>
+===
+
+title: BloodTrail1
+---
+More blood near the bed, this must be the victims blood.
+<<if $itemCount == 6>>
+    <<jump SixItems>>
+<<endif>>
+===
+
+
+//------------------------------------------------------------------------
 //                                  First room:
 //------------------------------------------------------------------------
 title:FirstRoom
@@ -186,11 +255,7 @@ Could this possibly be the what happen before the incident.
 //------------------------------------------------------------------------
 title: Drink
 ---
-A bottle Whiskey, have to say they have a good taste, TAV 96, very noble.  
-This must be what they were drinking at the table
-<<if $itemCount == 6>>
-    <<jump SixItems>>
-<<endif>>
+The same bottle of Whiskey I found in the other room.
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "drink">>
 <<set_enabled "MenuTrigger" false>>
@@ -238,6 +303,7 @@ Ciggarets, this might belong to the killer or the victim, can't be sure yet.
 title: Poison
 ---
 Looks like there's something in the trash.
+Thats the bottle I found on the table in the other room.
 Seems like some sort of weird drugs.
 This might be the cause of death, 
 I'll make sure to send this to the lab later.
@@ -379,9 +445,6 @@ Seems like they started playing chess here.
 Hm... I suposse my theory of the rooms being the crime scene,
 just at different times might be correct...
 How is this even possible?!
-<<if $itemCount == 6>>
-    <<jump SixItems>>
-<<endif>>
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "chess">>
 <<set_enabled "MenuTrigger" false>>
@@ -456,9 +519,6 @@ title: Poison2
 ---
 Seems like the person, has found the strange fluid in the trash.
 Maybe they started to explore the apartment afte the other person left?
-<<if $itemCount == 6>>
-    <<jump SixItems>>
-<<endif>>
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "poison">>
 <<set_enabled "MenuTrigger" false>>
@@ -603,9 +663,6 @@ Prehaps, the time of death?
 title: Bloodpath
 ---
 A path made from blood drops... I wonder where it leads to, this must be from the victim.
-<<if $itemCount == 6>>
-    <<jump SixItems>>
-<<endif>>
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "bloodpath">>
 <<set_enabled "MenuTrigger" false>>
@@ -625,9 +682,6 @@ Last room, hopefully it'll bring some closure.
 title: BloodTrail
 ---
 The blood trail leeds to the bed...
-<<if $itemCount == 6>>
-    <<jump SixItems>>
-<<endif>>
 ===
 
 //------------------------------------------------------------------------
@@ -684,9 +738,6 @@ title: Contract
 ---
 <<show_path "Player" "MenuTrigger">>
 Hmm.. looks like some sort of a contract.
-<<if $itemCount == 6>>
-    <<jump SixItems>>
-<<endif>>
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "contract date 1">>
 <<set_enabled "MenuTrigger" false>>
