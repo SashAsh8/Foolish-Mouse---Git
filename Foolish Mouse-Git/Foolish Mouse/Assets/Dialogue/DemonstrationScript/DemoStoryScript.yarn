@@ -1,8 +1,9 @@
 //------------------------------------------------------------------------
 //                                 Scene 1
 //------------------------------------------------------------------------
-title:Scene1
+title: Scene1
 ---
+<<declare $objective="Talk to the police officers">>
 <<declare $itemCount=0>>
 //<<if get_scene() == "Scene1">>
 //   <<jump Scene1>>
@@ -17,6 +18,7 @@ title: SixItems
 ---
 I'm starting to feel weird.
 I should leave and come back once I feel better.
+<<set $objective="Leave the room">>
 ===
 
 title: Leave
@@ -31,6 +33,7 @@ title: Leave
 //------------------------------------------------------------------------
 title:Scene2
 ---
+<<set $objective="Leave the room">>
 //check if we are in the right scene
 //<<if get_scene() == "Scene2">>
 //    <<jump Scene2>>
@@ -42,6 +45,7 @@ Wha- What just happened?!
 Surely I'm going crazy.
 I should really leave and clear my mind.
 I can come back later once I'm back to my senses.
+<<set $objective="Leave using the elevator">>
 ===
 
 //------------------------------------------------------------------------
@@ -55,11 +59,13 @@ title:Scene3
 //<<endif>>
 //disable all interactivity
 //show welcome text
+<<set $objective="Leave using the elevator">>
 Ok, What is going on here?!
 I must be going mad.
 Wait?...
 Now the other room is open?!
 I should investigate this and figure out how to leave.
+<<set $objective="Investigate Room 1">>
 ===
 //------------------------------------------------------------------------
 //                                  DemonstrateFeatures
@@ -107,6 +113,7 @@ What do you mean about that?
 <<say "NPCHead1" "Once youre ready, go to the last room.">>
 <<say "NPCHead1" "The sheriff should be waiting there">>
 Alright, thank you gentlemen. 
+<<set $objective = "Speak to the sheriff">>
 ===
 
 title:Cop2
@@ -130,6 +137,7 @@ So if you'd excuse me...
 <<say "Sheriff" "Alright, you got it detective.">>
 Appreciate it chief.
 <<say "Sheriff" "Just get it done.">>
+<<set $objective = "Investigate the room">>
 <<walk_to "police officer door 2" "Location">> 
 <<walk_to "police officer door 1" "Location">> 
 ===
@@ -220,6 +228,7 @@ How-
 How is this even possible.
 It looks like the same room as before, only the items are in different positions?
 I should take a better look this time.
+<<set $objective="Investigate and figure out how to open room 2">>
 ===
 
 //------------------------------------------------------------------------
@@ -359,6 +368,7 @@ hint - the defeat of the Japanese navy in the Battle of Midway"
 //------------------------------------------------------------------------
 title: Newspaper
 ---
+Seems like the newspaper changed pages.
 The newspaper reads:
 "Insanity in a Liquid; A new chemical was recently discovered by scientists. 
 They have found that this chemical can interact with the human brain and make the subject go insane..."
@@ -389,9 +399,10 @@ title: Diary2
 ---
 In this room the diary seems to be open.
 The diary reads:
-"ToNight I'll fiNally Execute my plan. 
-Took me Some tIme to fiX all the details, but at last, my plan cOmes to life. 
-Nothing and no onE is There so I Will not be stOpped."
+"toNight I'll fiNally Execute my plan. 
+took me Some tIme to fiX all the details, 
+but at last, my plan cOmes to life. Nothing and no onE 
+is There so i Will not be stOpped."
 
 <<set_enabled "MenuTrigger" true>>
 <<wait_until_closed "diary open">>
@@ -422,6 +433,7 @@ Prehaps I was right, the rooms are all the same...
 Just with slight changes?
 Maybe I can make more sense of this by finding more clues.
 There's something weird going on... I need to get out of here somehow.
+<<set $objective="Investigate and figure out how to open room 3">>
 ===
 
 //------------------------------------------------------------------------
@@ -455,10 +467,11 @@ How is this even possible?!
 //------------------------------------------------------------------------
 title:ThirdRoom
 ---
-Well, cant say I'm surprised by now.
+Well, can't say I'm surprised by now.
 There has to be some way to get out of here.
 But for now I'll try to figure out this case.
 Maybe then, I'll be able to escape this madness.
+<<set $objective="Investigate and figure out how to open room 4">>
 ===
 
 //------------------------------------------------------------------------
@@ -479,6 +492,7 @@ This means, they had to start drinking it.
 title: FourthRoom
 ---
 Let's see, what new things can be found here.
+<<set $objective="Investigate and figure out how to open room 5">>
 ===
 
 //------------------------------------------------------------------------
@@ -499,6 +513,7 @@ The ciggarets seem to be gone, prehaps they went out for a smoke?
 title: FifthRoom
 ---
 New room, new clues.
+<<set $objective="Investigate and figure out how to open room 6">>
 ===
 
 //------------------------------------------------------------------------
@@ -580,6 +595,7 @@ There must be an end to this madness.
 It's as if I'm a mouse stuck in a mouse trap..
 I'm the mouse, the doors are the cheese, and the rooms a trap.
 Surely it must end at some point... right?
+<<set $objective="Investigate and figure out how to open room 7">>
 ===
 //------------------------------------------------------------------------
 //                                  note 3
@@ -634,6 +650,7 @@ What could the answer be... I fear I might know the answer; however, I hope I'm 
 title: SeventhRoom
 ---
 I must find the answers here, and figure out how to leave.
+<<set $objective="Investigate and figure out how to open room 8">>
 ===
 //------------------------------------------------------------------------
 //                                 Scissor gone
@@ -674,6 +691,7 @@ A path made from blood drops... I wonder where it leads to, this must be from th
 title: EighthRoom
 ---
 Last room, hopefully it'll bring some closure.
+<<set $objective="Investigate and find a way to leave">>
 ===
 
 //------------------------------------------------------------------------
